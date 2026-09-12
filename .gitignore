@@ -1,7 +1,17 @@
+# FastF1
 ff1cache/
 fastf1_cache/
 __pycache__/
+
+# Reproducible telemetry extract
+madring_2026_FP1_*.csv
+
+# MATLAB / Simulink generated files
 *.slx
 *.slxc
 slprj/
 *.asv
+
+# OS/editor
+.DS_Store
+Thumbs.db
