@@ -1,0 +1,7 @@
+ff1cache/
+fastf1_cache/
+__pycache__/
+*.slx
+*.slxc
+slprj/
+*.asv

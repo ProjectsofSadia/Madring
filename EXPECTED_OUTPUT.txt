@@ -1,0 +1,36 @@
+CHECKSUM VALUES - verify your MATLAB run against these.
+Produced by an independent Python implementation of the identical algorithm
+on madring_FP1_RUS_lap20.csv with baseline parameters
+(mass 800 kg, CdA 1.15, Crr 0.015, rho 1.09, rear_frac 0.40, eta 0.90).
+
+Braking zone                dist(m)  v_in  v_min   dur   dKE MJ  350kW MJ  E_rec MJ   % lap
+------------------------------------------------------------------------------------------
+T1                              325   297    114  3.24    2.332     1.134     0.561    16.5
+T5 / 5A                        1398   292    111  3.08    2.251     1.078     0.555    16.3
+T6-T7 Carcavas                 1799   231     85  2.64    1.424     0.924     0.447    13.2
+T13 (exit La Monumental)       3128   277    149  2.77    1.683     0.971     0.435    12.8
+T17                            3796   262    101  3.36    1.804     1.176     0.483    14.2
+T20                            4610   242     78  3.32    1.620     1.162     0.418    12.3
+T21                            4826   165    116  1.52    0.425     0.532     0.137     4.0
+T22 El Parque                  5083   244    132  2.28    1.300     0.798     0.358    10.6
+------------------------------------------------------------------------------------------
+LAP TOTAL                                                12.838              3.394   100.0
+
+Lap total recoverable electrical energy ... 3.394 MJ
+Energy lost to the 350 kW ceiling ......... 0.619 MJ
+Fraction of dKE reaching the store ........ 26.4 %
+Per-lap harvest allowance used ............ 39.9 % of 8.5 MJ
+Peak unclipped rear-axle power at T1 ...... 738 kW
+Time above the 350 kW ceiling at T1 ....... 1.00 s
+
+Strategy A (max regen)         harvest 3.394 MJ | store FULL 0.00 s | store EMPTY 21.93 s
+Strategy B (constraint-aware)  identical - the store never approaches full at MADRING
+
+Top three by recoverable energy: T1, T5, T17   (stable in 9 of 9 sensitivity scenarios;
+only the T1/T5 order swaps at rear_frac = 0.30)
+
+NOTE ON SOLVER TOLERANCE
+The Simulink run uses a fixed-step ode1 solver at 0.01 s against telemetry sampled at
+~0.134 s, so From Workspace interpolation will shift the total by roughly +/-1-2 %.
+The MATLAB-only numbers above are the reference. If Simulink and MATLAB disagree by
+more than ~3 %, check the From Workspace interpolation setting before trusting either.
